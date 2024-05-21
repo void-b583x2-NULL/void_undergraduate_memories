@@ -1,1 +1,4 @@
 # void_undergraduate_memories
+
+本仓库持续更新，回忆本人于SJTU期间本科生活以及为后来者提供一些自己的经验。
+Github作为个人博客真好用吧。
