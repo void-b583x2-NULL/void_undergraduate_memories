@@ -1,8 +1,10 @@
 # M.1 数学随笔（1）极限与连续性证明
 
-*如果$a>b$，则存在$c$，使得$a>c>b$。证明：取$c=\frac12(a+b)$即可。*
+*命题1：如果$a>b$，则存在$c$，使得$a>c>b$。证明：取$c=\frac12(a+b)$即可。*
 
-这是一条非常显然的定理，因为我们知道实数是稠密的。但其实单这条，就有助于对极限和连续的理解了。
+*命题2：$a=b$的充要条件是$\forall \epsilon>0,|a-b|\le\epsilon$。证明：必要性显然。对于充分性，不妨若$a>b$，则取$\epsilon=\frac {a-b}2>0,|a-b|>\epsilon$，矛盾。*
+
+这两条都十分显然的定理，因为我们知道实数是稠密的。但就这两条，就有助于对极限和连续的理解了。
 
 回顾极限的定义：以函数趋于一点的极限为例，$\forall \epsilon>0, \exists\delta > 0,\forall x:0<|x-x_0|<\delta, |f(x)-A|<\epsilon$，则记$\lim\limits_{x\rightarrow x_0}f(x)=A$。特别的，若$A=f(x_0)$，则$f(x)$在$x_0$处连续。
 
@@ -66,4 +68,52 @@ $y_n$推导略。下证$y_n>4$且$y_n$单调递减：
 
 根据单调有界定理，$\{y_n\}$存在极限。对递推式两边取极限舍去负根可得$\lim\limits_{n\rightarrow\infty}y_n=4$，因此所求极限为$3$。
 
-本期专栏暂时分享如上几点。
+**例1.3** 已知$f(x)$在$x=0$处连续，$f(0)=0,\lim\limits_{x\rightarrow 0}\frac{f(2x)-f(x)}x=A$。证明$f(x)$在$x=0$处可导，并求$f'(0)$。
+
+错误解答：$A=\lim\limits_{x\rightarrow 0}\frac{f(2x)-f(x)}x=\lim\limits_{x\rightarrow 0}\left[2\cdot\frac{f(2x)-f(0)}{2x}-\frac{f(x)-f(0)}x\right]=2f'(0)-f'(0)=f'(0)$
+
+看似运用了导数定义，实则我们并没有证明$f$在$x=0$处可导，不能保证两项极限存在，这样使用定义是错误的。注意到以上步骤中并没有用到$f(x)$在$x=0$处连续的信息，我们需要利用这一条件。
+
+证明：因为 $\lim\limits_{x\rightarrow 0}\frac{f(2x)-f(x)}x=A$，即$\forall \epsilon>0,\exists \delta>0,\forall x\in (-\delta,\delta):\left|\frac{f(2x)-f(x)}x-A\right|<\epsilon$，此时有$|f(2x)-f(x)-Ax|<\epsilon|x|$成立。
+
+考虑$\frac x{2^k}\in(-\delta,\delta),k\in\N$，可得$|f(\frac x{2^{k-1}})-f(\frac x{2^k})-A\frac x{2^k}|<\frac \epsilon{2^k}|x|$
+
+现在考虑$x>0$的情形，即$\frac {A-\epsilon}{2^k}x<f(\frac x{2^{k-1}})-f(\frac x{2^k})<\frac {A+\epsilon}{2^k}x$
+
+自$k=1$累加到$n$，得$(1-\frac 1{2^n})(A-\epsilon) x<f(x)-f(\frac x{2^n})<(1-\frac 1{2^n})(A+\epsilon) x$
+
+又$f(x)$在$x=0$处连续，对给定的$x$令$n\rightarrow\infty$，有$(A-\epsilon)x\le f(x)-f(0)\le(A+\epsilon)x$，再由$f(0)=0$得$A-\epsilon\le\frac{f(x)}x\le A+\epsilon$，可知$\lim\limits_{x\rightarrow0^+}\frac{f(x)}x=A$，于是$f_+'(0)=A$。
+
+完全类似地可以证明$f_-'(0)=A$，所以$f'(0)=A$。
+
+**例1.4** 设$f(x)$在$[a,+\infty)$可导且有无数个互异零点$\{x_n\}$，$f(x)$在其零点处导数不为零。证明：$\lim\limits_{n\rightarrow\infty}x_n=+\infty$。
+
+分析：容易想见如果其无数个零点能挤在一起，似乎会引发问题。因此直接反证。
+
+证明：假设$\{x_n\}$不是正无穷大，则必然存在一子列有上界。否则，取自然数集$\N$，对其每一项都能找到一个子列$\{x_{n_k}'\},k\in\N$，且$\{x_{n_k}'\}$中存在大于$k$的项，于是这些项构成了一个趋于正无穷大的子列，此时$\{x_n\}$是正无穷大。注意到$x_n\ge a$，则$\{x_n\}$有下界。
+
+现在由致密性定理，$\{x_n\}$的给定子列存在收敛子列$\{x_{n_k}\}$，不妨设$\lim\limits_{k\rightarrow\infty}x_{n_k}=x_0$。
+
+由于$f(x)$是连续的，则$f(x_0)=\lim\limits_{k\rightarrow\infty}f(x_{n_k})=0$。
+
+因为$f'(x_0)\ne 0$，不妨$f'(x_0)>0$（另一边完全同理），则$\lim\limits_{x\rightarrow x_0}\frac{f(x)}{x-x_0}>0$，于是$\exists\delta>0,\forall x\in(x_0-\delta,x_0)\cup(x_0,x_0+\delta):\frac{f(x)}{x-x_0}>0$，这表明$f(x)\ne0$。
+
+但是由于$\lim\limits_{k\rightarrow\infty}x_{n_k}=x_0$，而$x_{n_k}$互异，因此$k$充分大时必定$\exists k,x_{n_k}\in(x_0-\delta,x_0)\cup(x_0,x_0+\delta)$。于是产生矛盾。
+
+综上，命题得证。
+
+注：这里其实用到了极限的另一个理解：若数列中不存在等于其收敛值，则必然存在无穷多项与收敛值任意近，证明可参考例1.1中关于$\inf S\in S$的证明。
+
+疑问：仅由题目条件能否推出$\{x_n\}$可数无穷？（否则这个记号似乎不严格）
+
+**例1.5** 已知$f(x)$在$[a,b]$上非负且连续，令$M=\max\limits_{x\in[a,b]}f(x)$，证明$\lim\limits_{n\rightarrow\infty}\left[\int_a^bf^n(x)\mathrm dx\right]^{\frac 1n}=M$
+
+分析：本题事实上是想说明定积分值完全被$M$附近的值占据了，但是这件事似乎不太好说。为此，我们考虑最大值点附近的一个邻域，函数值均在$M$附近。
+
+证明：显然$\left[\int_a^bf^n(x)\mathrm dx\right]^{\frac 1n}\le\left(\int_a^bM^n\mathrm dx\right)^\frac 1n=M(b-a)^\frac 1n$，下面考虑另外一边。
+
+考虑$x_0=\argmax\limits_{x\in[a,b]}f(x)$，因为$f(x)$连续，于是$\forall \epsilon>0,\exists \delta^*>0:\forall x\in(x_0-\delta^*, x_0+\delta^*)\cap[a,b]\overset{def}{=}[\alpha,\beta],f(x)>M-\epsilon$。于是$\left[\int_a^bf^n(x)\mathrm dx\right]^{\frac 1n}\ge\left[\int_\alpha^\beta (M-\epsilon)^n\mathrm dx\right]^\frac 1n=(M-\epsilon)(\beta-\alpha)^\frac 1n$。
+
+令$n\rightarrow\infty$，由夹逼定理知$M-\epsilon\le\lim\limits_{n\rightarrow\infty}\left[\int_a^bf^n(x)\mathrm dx\right]^{\frac 1n}\le M$
+
+由$\epsilon$的任意性（参见开头命题2），即证。
