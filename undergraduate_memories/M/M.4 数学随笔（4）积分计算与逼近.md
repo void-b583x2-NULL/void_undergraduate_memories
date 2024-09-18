@@ -113,7 +113,7 @@ $
 
 证明：根据Darboux定理，导函数具有介值性，因此$f'(x)<1$。构造$g(x)=f(x)-x$，则$\int_0^1g(x)\mathrm dx=-\frac 12$，且$g'(x)<0$，故$g(x)$严格单调递减。由于$\sum\limits_{k=0}^{n-1}f(\frac kn)=\sum\limits_{k=0}^{n-1}g(\frac kn)+\frac{n-1}2$，考虑$\sum\limits_{k=0}^{n-1}g(\frac kn)$的估计。
 
-因为在区间$(\frac {k-1}n,\frac kn]$上，$g(x)>g(\frac {k-1}n)$，所以$\frac 1n\sum\limits_{k=0}^{n-1}g(\frac kn) > \int_0^1g(x)\mathrm dx = -\frac 12$。又因为在$[\frac{k-1}n,\frac kn)$上$g(x)<g(\frac kn)$，于是$\frac 1n\sum\limits_{k=1}^{n}g(\frac kn) < \int_0^1g(x)\mathrm dx = -\frac 12$。注意到$\frac 1n\sum\limits_{k=1}^{n}g(\frac kn) = \frac 1n\sum\limits_{k=0}^{n-1}g(\frac kn)+\frac 1n[g(1)-g(0)]=\frac 1n\sum\limits_{k=0}^{n-1}g(\frac kn) + \frac 1n$，从而$-\frac 12< \frac 1n\sum\limits_{k=0}^{n-1}g(\frac kn)< \frac 1n -\frac 12$。
+因为在区间$(\frac {k-1}n,\frac kn]$上，$g(x)<g(\frac {k-1}n)$，所以$\frac 1n\sum\limits_{k=0}^{n-1}g(\frac kn) > \int_0^1g(x)\mathrm dx = -\frac 12$。又因为在$[\frac{k-1}n,\frac kn)$上$g(x)>g(\frac kn)$，于是$\frac 1n\sum\limits_{k=1}^{n}g(\frac kn) < \int_0^1g(x)\mathrm dx = -\frac 12$。注意到$\frac 1n\sum\limits_{k=1}^{n}g(\frac kn) = \frac 1n\sum\limits_{k=0}^{n-1}g(\frac kn)+\frac 1n[g(1)-g(0)]=\frac 1n\sum\limits_{k=0}^{n-1}g(\frac kn) + \frac 1n$，从而$-\frac 12< \frac 1n\sum\limits_{k=0}^{n-1}g(\frac kn)< \frac 1n -\frac 12$。
 
 整理相加，可得$\sum\limits_{k=0}^{n-1}f(\frac kn)\in(-\frac 12,\frac12)$，即证。
 
