@@ -11,7 +11,7 @@ C. 课程与学业篇
 
 E. [白月光篇](./undergraduate_memories/E)（完结）
 
-G. [棋牌与智力运动篇](./undergraduate_memories/G)
+G. [棋牌与智力运动篇](./undergraduate_memories/G)（完结）
 
 L. 科研篇
 

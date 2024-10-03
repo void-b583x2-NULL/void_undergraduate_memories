@@ -12,7 +12,7 @@
 
 本题来源于信号与系统课程中关于Fourier级数的讨论延申。由于Fourier级数的Dirichlet条件过于严格，而$\sin \frac 1x$不满足其有限区间上有限个严格极值点的条件。本分析摘录自自己之前提交的讨论内容，同时综合运用了广义积分的敛散判别法，供大家参考。
 
-证明：注意到其三角形式的Fourier系数$a_n=\frac 1\pi\int_{-\pi}^\pi  \sin\frac 1x\cos nx\mathrm dx=\frac 1\pi\int_{-\pi}^0  \sin\frac 1x\cos nx\mathrm dx+\frac 1\pi\int_{0}^\pi  \sin\frac 1x\cos nx\mathrm dx$，其中$0$时这一瑕积分的瑕点。为判断瑕积分敛散性，考察积分$\int_{0}^\pi  \sin\frac 1x\cos nx\mathrm dx\overset{u=\frac 1x}{=}\int_{\frac 1\pi}^{+\infty}  \frac {\sin u\cos \frac nu}{u^2}\mathrm du$​​​，
+证明：注意到其三角形式的Fourier系数$a_n=\frac 1\pi\int_{-\pi}^\pi  \sin\frac 1x\cos nx\mathrm dx=\frac 1\pi\int_{-\pi}^0  \sin\frac 1x\cos nx\mathrm dx+\frac 1\pi\int_{0}^\pi  \sin\frac 1x\cos nx\mathrm dx$，其中$0$为这一瑕积分的瑕点。为判断瑕积分敛散性，考察积分$\int_{0}^\pi  \sin\frac 1x\cos nx\mathrm dx\overset{u=\frac 1x}{=}\int_{\frac 1\pi}^{+\infty}  \frac {\sin u\cos \frac nu}{u^2}\mathrm du$​​​，
 
 先考虑无穷积分$\int_{\frac 1\pi}^{+\infty}  \frac {\sin u}{u^2}\mathrm du$，由于$\frac 1{u^2}$在$[\frac 1\pi,+\infty)$上单调递减趋于零，而变上限积分$I(A)=\int_{\frac 1\pi}^A\sin u \mathrm du$满足$|I(A)|\le 2$有界，故根据Dirichlet判别法，这个积分收敛。又当$u>\frac{2n}\pi$时$\cos \frac nu$单调递增且有界，由Abel判别法即得$\int_{\frac 1\pi}^{+\infty}  \frac {\sin u\cos \frac nu}{u^2}\mathrm du$​对任意给出的$n$​收敛。
 
@@ -34,7 +34,8 @@
 
 之后考虑比值判别法。这个广义比值$l=\lim\limits_{x\rightarrow+\infty}\frac{f(x)}{g(x)}$事实上说明$x\rightarrow+\infty$时$f(x)\sim lg(x)$。因此若$l=0$而$\int_a^{+\infty}g(x)\mathrm dx$收敛，自然$f(x)$的阶比$g(x)$低，一定收敛。完全类似地，可以理解另一边。
 
-解：（1）先考虑$\int_1^{+\infty}\frac {(\ln x)^p}{x^2}\mathrm dx$的敛散性。考虑辅助函数$h(x)=\frac 1{x^{\frac 32}}$，则$\frac{\frac {(\ln x)^p}{x^2}}{\frac 1{x^{\frac 32}}}=\frac {(\ln x)^p}{x^{\frac12}}$。当$x\rightarrow +\infty$时，L'Hospital一次有$\frac {p(\ln x)^{p-1}}{\frac 12x^{-\frac12}\cdot x}=\frac {2p(\ln x)^{p-1}}{x^{\frac12}}$，因为$p>0$是确定的，因此经历$[p]$次L'Hospital法则后可知原比值极限为 $0$。无穷积分$\int_1^{+\infty}\frac 1{x^{\frac32}}\mathrm dx$收敛，根据比值判别法，可知$\int_1^{+\infty}\frac {(\ln x)^p}{x^2}\mathrm dx$收敛，所以$\int_1^{+\infty}\frac {(\ln x)^p}{1+x^2}\mathrm dx\le\int_1^{+\infty}\frac {(\ln x)^p}{x^2}\mathrm dx$（绝对）收敛。
+解：（1）先考虑$\int_1^{+\infty}\frac {(\ln x)^p}{x^2}\mathrm dx$的敛散性。考虑辅助函数$h(x)=\frac 1{x^{\frac 32}}$，则$\frac{\frac {(\ln x)^p}{x^2}}{\frac 1{x^{\frac 32}}}=\frac {(\ln x)^p}{x^{\frac12}}$。当$x\rightarrow +\infty$时，L'Hospital一次有$\frac {p(\ln x)^{p-1}}{\frac 12x^{-\frac12}\cdot x}=\frac {2p(\ln x)^{p-1}}{x^{\frac12}}$，因为$p>0$是确定的，因此经历$[p]$次L'Hospital法则后可知原比值极限为 $0$。
+无穷积分$\int_1^{+\infty}\frac 1{x^{\frac32}}\mathrm dx$收敛，根据比值判别法，可知$\int_1^{+\infty}\frac {(\ln x)^p}{x^2}\mathrm dx$收敛，所以$\int_1^{+\infty}\frac {(\ln x)^p}{1+x^2}\mathrm dx\le\int_1^{+\infty}\frac {(\ln x)^p}{x^2}\mathrm dx$（绝对）收敛。
 
 （2）当$p>1$时，$\int_1^{+\infty}\left|\frac{\sin x^2}{x^p}\right |\mathrm dx\le \int_1^{+\infty}\frac1{x^p}\mathrm dx$收敛，原无穷积分绝对收敛。
 
@@ -52,7 +53,7 @@
 
 证明：由于$f'(x)\ge0$，因此$f(x)\ge f(0)=0$，必要性由$\frac  1{f(x)+f'(x)}\le\frac 1{f(x)}$即证。现在考虑充分性。
 
-事实上，$\frac 1{f(x)}=\frac 1{f(x)+f'(x)}+\frac{f'(x)}{f(x)[f(x)+f'(x)]}$，而$\frac{f'(x)}{f(x)[f(x)+f'(x)]}\le\frac{f'(x)}{[f(x)]^2}=-\left[\frac {1}{f(x)}\right]'$，从而$\int_0^{+\infty}\frac{f'(x)}{f(x)[f(x)+f'(x)]}\mathrm dx\le-\int_0^{+\infty}\mathrm d\frac 1{f(x)}=\lim\limits_{x\rightarrow+\infty}\left[\frac 1{f(0)}-\frac 1{f(x)}\right]$。因为$f(x)$单调递增，所以函数$\frac 1{f(0)}-\frac 1{f(x)}$也单调递增，但永远以$\frac1{f(0)}$为上界，因此极限存在。
+事实上，$\frac 1{f(x)}=\frac 1{f(x)+f'(x)}+\frac{f'(x)}{f(x)[f(x)+f'(x)]}$，而$\frac{f'(x)}{f(x)[f(x)+f'(x)]}\le\frac{f'(x)}{[f(x)]^2}=-\left[\frac {1}{f(x)}\right]'$，从而$\int_0^{+\infty}\frac{f'(x)}{f(x)[f(x)+f'(x)]}\mathrm dx\le-\int_0^{+\infty}\mathrm d\frac 1{f(x)}=\lim\limits_{x\rightarrow+\infty}\left[\frac 1{f(0)}-\frac 1{f(x)}\right]$。因为$f(x)$单调递增，所以函数$\frac 1{f(0)}-\frac 1{f(x)}$也单调递增，但永远以$\frac1{f(0)}$为上界，因此极限存在。（单调函数单侧极限定理）
 
 因此，$\int_0^{+\infty} \frac 1{f(x)}\mathrm dx=\int_0^{+\infty}\frac 1{f(x)+f'(x)}\mathrm dx+\int_0^{+\infty}\frac{f'(x)}{f(x)[f(x)+f'(x)]}\mathrm dx$收敛，充分性得证。
 

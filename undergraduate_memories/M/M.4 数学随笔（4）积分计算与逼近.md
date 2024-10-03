@@ -40,11 +40,9 @@ $$
 
 事实上，考察函数$f^*(x)=f(x)(x-p_1)^2=\frac {P(x)}{Q(x)}(x-p_1)^2=A(x-p_1)+B+R(x)(x-p_1)^2$。虽然这个函数在$x=p_1$处没有定义，但补充定义$f^*(p_1)=B$后$p_1$事实上是$f^*$的一个可去间断点。利用这一特性，我们可以直接在计算器中输入$\frac {P(x)}{Q(x)}(x-p_1)^2$的代数形式，随后代入$x=p_1+\Delta x$（$\Delta x$是一个任意小量，因为分母为零时计算器会报错，同时注意太小的$\Delta x$会导致计算器精度出现问题从而结果出现问题），求得对应的系数$B$。
 
-至于$A$呢？标准做法是考虑$[f^*(x)]'=A+[R'(x)(x-p_1)+2R(x)](x-p_1)$，代入$x=p_1$求得$B$。但是这样的做法过于麻烦，我们可以在计算器上直接输入$\left[\frac{P(x)}{Q(x)}-\frac B{(x-p_1)^2}\right](x-p_1)$后代入$x=p_1+\Delta x$计算即得$A$。
+至于$A$呢？标准做法是考虑$[f^*(x)]'=A+[R'(x)(x-p_1)+2R(x)](x-p_1)$，代入$x=p_1$求得。但是这样的做法过于麻烦，我们可以在计算器上直接输入$\left[\frac{P(x)}{Q(x)}-\frac B{(x-p_1)^2}\right](x-p_1)$后代入$x=p_1+\Delta x$计算即得$A$。
 
 以本题为例，欲求得$\frac 1{1+t},\frac1{(1+t)^2}$的系数，可以在计算器中输入$\frac{x^2}{(1-x^2)^2}(1+x)^2$后代入$x=-1.0001$计算出其系数为$\frac 14$，然后输入$\left[\frac{x^2}{(1-x^2)^2}-\frac 14\cdot\frac 1{(1+x)^2}\right](1+x)$代入$x=-1.0001$可计算出系数为$-\frac14$。
-
-//TODO：学习复变函数后考虑其与留数的联系
 
 然而这种解法虽然是通性通法，构成了重要的有理函数积分法，其计算量仍然有些大了。本题的正解是使用分部积分。
 
@@ -74,9 +72,20 @@ $$
 
 $|\int_0^1f(x)\mathrm dx|\le\frac 12\int_0^1|f'(x)|\mathrm dx$。
 
+**例4.3** 已知函数$f(x)$在$[a,b]$上可导，$f(a)=0$。
+（1）证明$\int_a^b[f(x)]^2\mathrm dx\le\frac {(b-a)^2}2\int_a^b[f'(x)]^2\mathrm dx$
+（2）若$f(b)=0$，证明$\int_a^b[f(x)]^2\mathrm dx\le\frac {(b-a)^2}8\int_a^b[f'(x)]^2\mathrm dx$
+
+分析：本题出现了函数的平方，因此想到Cauchy-Schwatz不等式。
+证明：（1）因为$f(x)=f(a)+\int_a^xf'(x)\mathrm dx=\int_a^xf'(x)\mathrm dx$，于是$[f(x)]^2=[\int_a^xf'(x)\mathrm dx]^2\le\int_a^x[f'(x)]^2\mathrm dx\int_a^x1^2\mathrm dx\le(x-a)\int_a^b[f'(x)]^2\mathrm dx$，由$a$至$b$积分得$\int_a^b[f(x)]^2\mathrm dx\le\frac {(b-a)^2}2\int_a^b[f'(x)]^2\mathrm dx$
+
+（2）将上述证明中的$b$以$\frac {a+b}2$替换，得$\int_a^\frac {a+b}2[f(x)]^2\mathrm dx\le\frac {(b-a)^2}8\int_a^\frac {a+b}2[f'(x)]^2\mathrm dx$
+又令$f^*(t)=f(a+b-t)$，此时$f^*(a)=f(b)=0$，且有$\int_{\frac {a+b}2}^b[f(x)]^2\mathrm dx=\int_a^\frac {a+b}2[f^*(t)]^2\mathrm dt\le\frac {(b-a)^2}8\int_a^\frac {a+b}2[{f^*}'(t)]^2\mathrm dt=\frac {(b-a)^2}8\int_{\frac {a+b}2}^b[{f}'(x)]^2\mathrm dx$
+两式相加，即得$\int_a^b[f(x)]^2\mathrm dx\le\frac {(b-a)^2}8\int_a^b[f'(x)]^2\mathrm dx$
+
 以下讨论一类题目，涉及定积分值的估计，一般使用区间分点累加进行逼近。通过不同的题目我们将能看到，这个估计与真实值的差距往往是可控的。
 
-**例4.3** $f(x)$在$[a,b]$上二阶导数连续，证明$\lim\limits_{n\rightarrow\infty} n^2[\int_a^bf(x)\mathrm dx-\frac{b-a}n\sum\limits_{k=1}^nf\left(a+\frac {2k-1}{2n}(b-a)\right)]=\frac {(b-a)^2}{24}[f'(b)-f'(a)]$
+**例4.4**（十三届全国大学生数学竞赛非数学类初赛原题） $f(x)$在$[a,b]$上二阶导数连续，证明$\lim\limits_{n\rightarrow\infty} n^2[\int_a^bf(x)\mathrm dx-\frac{b-a}n\sum\limits_{k=1}^nf\left(a+\frac {2k-1}{2n}(b-a)\right)]=\frac {(b-a)^2}{24}[f'(b)-f'(a)]$
 
 分析：本题结论指出使用区间中点的估计与真实值的差距仅仅是一个关于区间个数的二阶无穷小量。解答本题需要较强的分析学知识，关系到定积分的定义。
 
@@ -97,7 +106,7 @@ $
 
 注：上式正符合在分划$\pi$由$\{x_k\}$给出时的Darboux上和与下和，但虽然很显然，并没有定理保证可积函数的Darboux上下和收敛于其定积分值，本题函数是连续的，可以规避掉这个问题。
 
-**例4.4** 已知$[0,\pi]$上的连续函数$f(x)$，试求$\lim\limits_{n\rightarrow\infty} \int_0^\pi f(x)|\sin nx|\mathrm dx$。
+**例4.5** 已知$[0,\pi]$上的连续函数$f(x)$，试求$\lim\limits_{n\rightarrow\infty} \int_0^\pi f(x)|\sin nx|\mathrm dx$。
 
 分析：$f(x)$连续时可以使用积分中值定理，使用由$\{\frac {k\pi} n\}$构成的划分。
 
@@ -107,9 +116,9 @@ $
 
 注：如果将$f(x)$放宽为可积函数，将乘积拓广为任意周期函数，将区间拓广为任意区间，将得到Riemann引理。该引理证明复杂，可自行查阅相关资料。
 
-**例4.5** 已知$f(x)$在$[0,1]$上可导，$f(0)=f(1),\int_0^1f(x)\mathrm dx=0$且$f'(x)\ne 1$。求证：$\forall n\in\N, \left|\sum\limits_{k=0}^{n-1}f(\frac kn)\right|< \frac12$
+**例4.6** 已知$f(x)$在$[0,1]$上可导，$f(0)=f(1),\int_0^1f(x)\mathrm dx=0$且$f'(x)\ne 1$。求证：$\forall n\in\N, \left|\sum\limits_{k=0}^{n-1}f(\frac kn)\right|< \frac12$
 
-分析：仍然是熟悉的区间点求和估计，但这里$n$不再趋于无穷。本题的精髓是构造函数使之为单调函数，从而单调函数的区间单侧点累加与积分值必然存在严格大小关系。
+分析：仍然是熟悉的区间点求和估计，但这里$n$不再趋于无穷。本题的精髓是构造函数使之为严格单调函数，从而其区间单侧点值累加与积分值必然存在严格大小关系。
 
 证明：根据Darboux定理，导函数具有介值性，因此$f'(x)<1$。构造$g(x)=f(x)-x$，则$\int_0^1g(x)\mathrm dx=-\frac 12$，且$g'(x)<0$，故$g(x)$严格单调递减。由于$\sum\limits_{k=0}^{n-1}f(\frac kn)=\sum\limits_{k=0}^{n-1}g(\frac kn)+\frac{n-1}2$，考虑$\sum\limits_{k=0}^{n-1}g(\frac kn)$的估计。
 
@@ -118,6 +127,6 @@ $
 整理相加，可得$\sum\limits_{k=0}^{n-1}f(\frac kn)\in(-\frac 12,\frac12)$，即证。
 
 注：函数$f(x)$在$I$上严格单调递增（或递减）的充要条件是：
-（1）$f'(x)\ge 0 (f'(x)\le0),x\in I$；
+（1）$f'(x)\ge 0 (f'(x)\le0),x\in I$；且
 （2）$\forall [\alpha,\beta] \subset I, f(x)$不恒为$0$。
 因此$f'(x)<0,\forall x\in I$可以推得$f(x)$在$I$上严格单调递减，但反之不然。
