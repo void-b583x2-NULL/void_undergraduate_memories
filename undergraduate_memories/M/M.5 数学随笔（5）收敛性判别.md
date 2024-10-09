@@ -22,6 +22,8 @@
 
 注：$\sum\limits_{k=1}^n\cos kx=\frac 1{\sin \frac x2}\sum\limits_{k=1}^n\sin \frac x2\cos kx=\frac 1{2\sin\frac x2}\sum\limits_{k=1}^n[\sin(kx+\frac x2)-\sin(kx-\frac x2)]=\frac 1{2\sin\frac x2}(\sin \frac {2k+1}2x-\sin \frac x2)$
 
+\#TODO 笔者一直想解决的一个问题：闭区间上连续函数（也是一致连续函数）若在任意子区间上不恒为零，其零点是否至多可列？笔者目前只能想到类似于“不可数个正数存在子列和上界无穷”之类的描述用反证法对这一命题加以证明，但相信存在更好的方法直接使用一致连续的定义结合实数基本定理进行证明，目前未能做到，留作思考。这一问题另一个的形式即[M.1](M.1%20数学随笔（1）极限与连续性证明.md)例1.4的“疑问”部分。
+
 **例5.3**  讨论无穷积分的敛散性：$\int_1^{+\infty}\frac {(\ln x)^p}{1+x^2}\mathrm dx,\int_1^{+\infty}\frac{\sin x^2}{x^p}\mathrm dx, p>0$
 
 分析：寻找函数的阶，根据已有的敛散结论，使用比值判别法进行证明。
@@ -41,7 +43,7 @@
 
 当$p\le1$时，首先考虑原始积分。先考虑$\int_1^{+\infty}\sin x^2\mathrm dx\overset {u=x^2}=\int_1^{+\infty}\frac{\sin u}{2\sqrt u}\mathrm du$。因为$\frac 1{\sqrt u}$单调递减趋于零，而变上限积分$\int_1^A\sin u\mathrm du$有界，因此由Dirichlet判别法，这一无穷积分收敛。又因为$\frac 1{x^p}$是单调有界的，因此根据Abel判别法，原积分收敛。
 
-下面考虑绝对收敛性。由于$|\sin t|\le 1$，有$|\sin x^2|\ge\sin^2x^2=\frac 12(1-\cos 2x^2)$。完全相似地可以证明$\int_1^{+\infty}\frac{\cos 2x^2}{x^p}\mathrm dx$收敛，但是$\int_1^{+\infty}\frac 1{x^p}\mathrm dx$发散，所以$\int_1^{+\infty}\left|\frac{\sin x^2}{x^p}\right |\mathrm dx\ge\frac 12[\int_1^{+\infty}\frac 1{x^p}\mathrm dx-\int_1^{+\infty}\frac{\cos 2x^2}{x^p}\mathrm dx]$发散。
+下面考虑绝对收敛性。由于$|\sin t|\le 1$，有$|\sin x^2|\ge\sin^2x^2=\frac 12(1-\cos 2x^2)$。完全相似地可以证明$\int_1^{+\infty}\frac{\cos 2x^2}{x^p}\mathrm dx$收敛，但是$\int_1^{+\infty}\frac 1{x^p}\mathrm dx$发散，所以$\int_1^{+\infty}\left|\frac{\sin x^2}{x^p}\right |\mathrm dx\ge\frac 12(\int_1^{+\infty}\frac 1{x^p}\mathrm dx-\int_1^{+\infty}\frac{\cos 2x^2}{x^p}\mathrm dx)$发散。
 
 综上，这一积分条件收敛。
 
