@@ -110,7 +110,7 @@ $
 
 分析：$f(x)$连续时可以使用积分中值定理，使用由$\{\frac {k\pi} n\}$构成的划分。
 
-证明：令$x_k=\frac {k\pi}n,0\le k\le n$将$[0,\pi]$划分为$k$等分，在区间$I_k=[x_{k-1},x_k]$上$\exists \xi_k\in I_k$，$\int_{x_{k-1}}^{x_k}f(x)|\sin nx|\mathrm dx=f(\xi_k)\int_{x_{k-1}}^{x_k}|\sin nx|\mathrm dx$
+解：令$x_k=\frac {k\pi}n,0\le k\le n$将$[0,\pi]$划分为$k$等分，在区间$I_k=[x_{k-1},x_k]$上$\exists \xi_k\in I_k$，$\int_{x_{k-1}}^{x_k}f(x)|\sin nx|\mathrm dx=f(\xi_k)\int_{x_{k-1}}^{x_k}|\sin nx|\mathrm dx$
 
 在$I_k$上，$\int_{x_{k-1}}^{x_k}|\sin nx|\mathrm dx=\frac 2n$，于是对于给定的划分$\pi=\{\frac {k\pi} n\}$，$\int_0^\pi f(x)\mathrm dx=\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^nf(\xi_k)\frac \pi n$，于是$\lim\limits_{n\rightarrow\infty} \int_0^\pi f(x)|\sin nx|\mathrm dx=\lim\limits_{n\rightarrow\infty}\sum\limits_{k=1}^nf(x_k)\frac 2n=\frac 2\pi\int_0^\pi f(x)\mathrm dx$
 

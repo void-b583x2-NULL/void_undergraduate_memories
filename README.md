@@ -21,6 +21,8 @@ N. [破碎之恋篇](./undergraduate_memories/N)
 
 T. 助教与各类教学篇
 
-W. [留学准备篇](./undergraduate_memories/W)
+W. [留学准备篇](./undergraduate_memories/W)（完结）
 
 目前已知问题：Github渲染含中文与数学公式夹杂的段落时不能正常识别数学公式，（特别是M篇）推荐下载至本地后使用Markdown查看工具查看。
+
+如有任何讨论（特别是针对M篇和W篇）的问题，欢迎提在Issue或者联系我。

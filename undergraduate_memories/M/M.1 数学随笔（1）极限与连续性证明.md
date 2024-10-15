@@ -4,7 +4,7 @@
 
 *命题2：$a=b$的充要条件是$\forall \epsilon>0,|a-b|\le\epsilon$。证明：必要性显然。对于充分性，不妨若$a>b$，则取$\epsilon=\frac {a-b}2>0,|a-b|>\epsilon$，矛盾。*
 
-这两条都十分显然的定理，因为我们知道实数是稠密的。但就这两条，就有助于对极限和连续的理解了。
+这两条都是十分显然的定理，因为我们知道实数是稠密的。但就它们，就足够加深对极限和连续的理解了。
 
 回顾极限的定义：以函数趋于一点的极限为例，$\forall \epsilon>0, \exists\delta > 0,\forall x:0<|x-x_0|<\delta, |f(x)-A|<\epsilon$，则记$\lim\limits_{x\rightarrow x_0}f(x)=A$。特别的，若$A=f(x_0)$，则$f(x)$在$x_0$处连续。
 
