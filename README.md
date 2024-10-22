@@ -19,8 +19,6 @@ M. [数学随笔](./undergraduate_memories/M) （初步完结，有好题/思考
 
 N. [破碎之恋篇](./undergraduate_memories/N)
 
-T. 助教与各类教学篇
-
 W. [留学准备篇](./undergraduate_memories/W)（完结）
 
 目前已知问题：Github渲染含中文与数学公式夹杂的段落时不能正常识别数学公式，（特别是M篇）推荐下载至本地后使用Markdown查看工具查看。
