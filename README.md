@@ -5,7 +5,7 @@ Github作为个人博客真好用吧。
 
 内容索引：
 
-A. [社团与学生工作篇](./undergraduate_memories/A)（至A.4）
+A. [社团与学生工作篇](./undergraduate_memories/A)（至A.5）
 
 C. 课程与学业篇
 
