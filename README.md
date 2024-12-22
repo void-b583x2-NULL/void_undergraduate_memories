@@ -17,7 +17,7 @@ L. 科研篇
 
 M. [数学随笔](./undergraduate_memories/M) （初步完结，有好题/思考随时更新）
 
-N. [破碎之恋篇](./undergraduate_memories/N)（至N.9）
+N. [破碎之恋篇](./undergraduate_memories/N)（至N.10）
 
 W. [留学准备篇](./undergraduate_memories/W)（完结）
 
