@@ -5,7 +5,7 @@ Github作为个人博客真好用吧。
 
 内容索引：
 
-A. [社团与学生工作篇](./undergraduate_memories/A)（至A.5）
+A. [社团与学生工作篇](./undergraduate_memories/A)（至[A.6](./undergraduate_memories/A/A.6%20幻灭的开端.md)）
 
 C. 课程与学业篇
 
@@ -17,7 +17,7 @@ L. 科研篇
 
 M. [数学随笔](./undergraduate_memories/M) （初步完结，有好题/思考随时更新）
 
-N. [破碎之恋篇](./undergraduate_memories/N)（至N.10）
+N. [破碎之恋篇](./undergraduate_memories/N)（至[N.11](./undergraduate_memories/N/N.11%20曲终绝响（上）.md)）
 
 W. [留学准备篇](./undergraduate_memories/W)（完结）
 
